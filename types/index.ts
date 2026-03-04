@@ -1,4 +1,23 @@
 // ─────────────────────────────────────────────
+// Helius API Types (legacy client)
+// ─────────────────────────────────────────────
+
+export interface HeliusTransaction {
+  signature: string;
+  type: string;
+  timestamp: number;
+  source: string;
+  fee: number;
+  feePayer: string;
+  accountData: { account: string; nativeBalanceChange: number }[];
+}
+
+export interface HeliusBalance {
+  nativeBalance: number;
+  tokens: { mint: string; amount: number; decimals: number }[];
+}
+
+// ─────────────────────────────────────────────
 // Alchemy / Solana RPC Raw Response Types
 // ─────────────────────────────────────────────
 
