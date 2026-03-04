@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Solana Intelligence Layer 🧠
 
-## Getting Started
+A powerful AI-driven application that translates raw, complex Solana blockchain data into instant, human-readable intelligence reports and risk profiles.
 
-First, run the development server:
+## The Problem It Solves
+Blockchain data is fundamentally open, but it is **not legible**. If you look up a wallet on a raw explorer like Solscan, you are met with a massive, messy list of transaction hashes, raw signature bytes, and token transfers. 
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+To understand what a wallet is *actually* doing, an analyst must spend hours manually tracing transactions, digging into smart contracts, and establishing a behavioral pattern.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## The Solution
+The **Solana Intelligence Layer** automates hours of manual data labor into a 5-second automatic process. By simply pasting a wallet address, the application aggregates the raw data and provides:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Behavioral Profiling:** Instantly categorizes the wallet type (e.g., "Active DeFi User", "Airdrop Farmer") by calculating average transactions per day, active time periods, and total volume.
+2. **Risk & Protocol Scoring:** Generates a unified Risk Score (/100) determining if a wallet interacts with high-risk smart contracts, lacks diversification, or transacts unnaturally fast.
+3. **AI Translation (The "Intelligence" Layer):** Acts as a bridge between data and human decision-making. By structuring calculated metrics and feeding them into our LLM endpoint, the application synthesizes cold data into plain-English behavioral insights.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Architecture & Tech Stack
+![Intelligence Panel Example](https://github.com/user-attachments/assets/demo-placeholder) *(Replace placeholder later)*
 
-To learn more about Next.js, take a look at the following resources:
+* **Frontend:** Next.js (App Router), React, TailwindCSS + Framer Motion (Glassmorphism UX)
+* **On-Chain Data:** Alchemy Solana RPC (Batch-requesting Signatures, Balances, & Transactions)
+* **AI Inference:** Google Gemini API (Using `gemini-2.5-flash` for high-speed, cost-effective programmatic summarization).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Local Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If you'd like to run a local instance of the application:
 
-## Deploy on Vercel
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/dexdivine9-source/solana-intelligence-layer.git
+   cd solana-intelligence-layer
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a `.env.local` file in the root directory and add your API Keys:
+   ```env
+   ALCHEMY_SOLANA_URL=https://solana-mainnet.g.alchemy.com/v2/YOUR_ALCHEMY_KEY
+   GEMINI_API_KEY=YOUR_GOOGLE_GEMINI_KEY
+   ```
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design Philosophy
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project was built with a strict emphasis on dark-mode aesthetics, responsive UI components, and the "Glassmorphism" design trend to give the application a premium, institutional-grade feel suited for high-level technical traders or protocol risk analysts.
