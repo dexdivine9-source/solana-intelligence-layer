@@ -55,8 +55,8 @@ export async function getWalletSignatures(
  * Returns the SOL balance in lamports.
  */
 export async function getWalletSolBalance(address: string): Promise<number> {
-    const result = await rpc<{ value: number }>("getBalance", [address]);
-    return result.value;
+    const result = await rpc<{ value: number } | null>("getBalance", [address]);
+    return result?.value ?? 0;
 }
 
 /**
@@ -66,11 +66,11 @@ export async function getWalletTokenAccounts(
     address: string
 ): Promise<AlchemyTokenAccount[]> {
     const TOKEN_PROGRAM = "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA";
-    const result = await rpc<{ value: AlchemyTokenAccount[] }>(
+    const result = await rpc<{ value: AlchemyTokenAccount[] } | null>(
         "getTokenAccountsByOwner",
         [address, { programId: TOKEN_PROGRAM }, { encoding: "jsonParsed" }]
     );
-    return result.value;
+    return result?.value ?? [];
 }
 
 /**
