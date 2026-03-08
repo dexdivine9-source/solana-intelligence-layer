@@ -1,4 +1,4 @@
-# Solana Intelligence Layer 🧠
+# Solana Intelligence Layer 
 
 A powerful AI-driven application that translates raw, complex Solana blockchain data into instant, human-readable intelligence reports and risk profiles.
 
